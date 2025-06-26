@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing:border-box;
+}
+html,body{
+    height:100%;
+    width:100%;
+}
+#root{
+  height: 100%;
+  width: 100%;
+  background-color: black;
+} 
+.yoo {
+  font-size: 80px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  animation: glow-animation 1.5s ease-in-out infinite alternate;
+}
+
+.yoo::before,
+.yoo::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  color: #fff;
+  filter: blur(5px);
+}
+
+.yoo::before {
+  left: -2px;
+  top: -2px;
+  animation: glow-animation 1.5s ease-in-out infinite alternate;
+}
+
+.yoo::after {
+  left: 2px;
+  top: 2px;
+  animation: glow-animation 1.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes glow-animation {
+  from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+  }
+  to {
+      text-shadow: 0 0 10px #fff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+}
